@@ -1,0 +1,28 @@
+<div class="first-block">
+  <div class="field"> 
+    <h1>お問い合わせ一覧</h1>
+  </div>
+  <% if user_signed_in? %>
+<% end %>
+
+
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+    <%= t.user.email %>
+      <%= t.name %>
+      <%= t.about %>
+      <%= link_to "詳細へ", tweet_path(t.id) %>
+      <%= link_to "編集する", edit_tweet_path(t.id) %>
+      <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+      </div>
+  <% end %>
+</div> 
+
+ 
+  
+
+
+
+  
+<

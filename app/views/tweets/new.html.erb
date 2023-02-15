@@ -1,0 +1,27 @@
+<div class="first-block">
+  <div class="field">
+    <img src="/assets/sexeducation.jpg.jpg", alt="犬", class="doog">
+  </div>
+
+<div class="second-block">
+<h3>お問い合わせフォーム</h3>
+<%= form_for @tweet do |f| %>
+
+<div class="field">
+    <%= f.label :名前 %>
+    <%= f.text_field :name, :size => 30 %>
+ </div>
+
+ <div class="field">
+    <%= f.label :本文 %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+<div class="field">
+  <%= f.submit "投稿する" %>
+  </div>
+<% end %>
+</div>
+
+<%= link_to "一覧に戻る", tweets_path %>
+

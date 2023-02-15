@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sexeducation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+ <header>
+  <h1>性教育、どうですか？</h1>
+  <div class="header-list">
+    <% if user_signed_in? %>
+      <li><a href="#"><%= link_to "お問い合わせ一覧", tweets_path %></a></li>
+      <li><a href="#"><%= link_to "カレンダー＆ブログ", reports_path %></a></li>
+      <li><a href="#"><%= link_to "新しく問い合わせる", new_tweet_path %></a></li>
+      <li><a href="#"><%= link_to "マイページへ", user_path(current_user.id) %></a></li>
+  <% end %>
+
+   
+   <ul>
+    <% if user_signed_in? %>
+     <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+     <li><%= link_to "新規登録", new_user_registration_path %></li>
+     <li><%= link_to "ログイン", new_user_session_path %></li>
+    <% end %>
+   </ul>
+  </div>
+ </header>
+ <main>
+  <%= yield %>
+ </main>
+</body>
+
+</html>

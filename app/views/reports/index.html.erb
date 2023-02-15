@@ -1,0 +1,50 @@
+<div class="first-block">
+  <%= link_to '日記をかく', new_report_path %>
+
+<div class="field">
+  <h1>活動カレンダー</h1>
+</div>
+
+  <br>
+  <%= month_calendar events: @reports do |date, reports| %>
+    <%= date.day %>
+
+    <% reports.each do |report| %>
+      <div>
+        <%= link_to report.title, report %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+<div class="second-block">
+  
+<div class="field">
+  <h1>ブログ</h1>
+</div>
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+    <% end %>
+  <% end %>
+
+
+  <div class="reports-container">
+    
+    <p id="notice"><%= notice %></p>
+
+  <table>
+    <tbody>
+      <% @reports.each do |report| %>
+        <tr>
+          <td><%= report.title %></td>
+          <td><%=  report.image_url %></td>
+          <td><%= link_to '詳細', report %></td>
+          <td><%= link_to '編集', edit_report_path(report.id) %></td>
+          <td><%= button_to '削除',report_path(report.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  </div>

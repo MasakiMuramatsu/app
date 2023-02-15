@@ -1,0 +1,16 @@
+<div class="first-block">
+  <div class="report">
+    <%= image_tag @report.image_url, size: "1145x673" if @report.image? %>
+  </div>
+</div>
+
+<div class="second-block">
+  <div class="report">
+  <p><%= @report.title %></p> 
+  <p><%= @report.about %></p>
+  <p><%= @report.created_at %></p>
+  </div>
+</div>
+
+<%= link_to "ブログ一覧に戻る", reports_path %>
+<%= link_to "編集する", edit_report_path(@report.id) %>
