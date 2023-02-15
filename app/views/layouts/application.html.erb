@@ -13,7 +13,11 @@
   <h1>性教育、どうですか？</h1>
   <div class="header-list">
     <% if user_signed_in? %>
-      <li><a href="#"><%= link_to "お問い合わせ一覧", tweets_path %></a></li>
+    <% if user_signed_in? %>
+<% if current_user.id == 1 %>
+<li><a href="#"><%= link_to "お問い合わせ一覧", tweets_path %></a></li>
+<% end %>
+<% end %>
       <li><a href="#"><%= link_to "カレンダー＆ブログ", reports_path %></a></li>
       <li><a href="#"><%= link_to "新しく問い合わせる", new_tweet_path %></a></li>
       <li><a href="#"><%= link_to "マイページへ", user_path(current_user.id) %></a></li>

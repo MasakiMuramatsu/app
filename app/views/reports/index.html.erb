@@ -1,5 +1,10 @@
 <div class="first-block">
-  <%= link_to '日記をかく', new_report_path %>
+<% if user_signed_in? %>
+<% if current_user.id == 1 %>
+<%= link_to '日記をかく', new_report_path %>
+<% end %>
+<% end %>
+
 
 <div class="field">
   <h1>活動カレンダー</h1>
@@ -23,11 +28,7 @@
 <div class="field">
   <h1>ブログ</h1>
 </div>
-  <% if user_signed_in? %>
-    <% if current_user.admin? %>
-    <% end %>
-  <% end %>
-
+ 
 
   <div class="reports-container">
     
