@@ -14,3 +14,37 @@
  *= require_tree .
  *= require_self
  */
+
+header{
+    height: 143px;
+    background-color: #50A0A0;
+    color: #FFFFFF;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.header-list {
+    padding: 2.5% 0;
+    display: frex;
+    flex-direction: row;
+    }
+
+.header-list> *{
+  min-width: 8%;
+  font-size: 15px;
+  text-align: right;
+}
+
+
+.first-block {
+    height: 826px;
+    background-color: #F2F5FF;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
+
+ul{
+    padding-left:0;
+  }
+  
+li{
+    list-style:none;
+  }

@@ -8,12 +8,17 @@
 <%= form_for @tweet do |f| %>
 
 <div class="field">
-    <%= f.label :名前 %>
+    <%= f.label :name %>
     <%= f.text_field :name, :size => 30 %>
  </div>
 
  <div class="field">
-    <%= f.label :本文 %>
+    <%= f.label :mail %>
+    <%= f.text_field :name, :size => 30 %>
+ </div>
+
+ <div class="field">
+    <%= f.label :about %>
     <%= f.text_area :about, :size => "30x2" %>
   </div>
 

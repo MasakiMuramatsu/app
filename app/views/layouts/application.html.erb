@@ -9,34 +9,37 @@
   </head>
 
   <body>
- <header>
-  <h1>性教育、どうですか？</h1>
-  <div class="header-list">
-    <% if user_signed_in? %>
-    <% if user_signed_in? %>
-<% if current_user.id == 1 %>
-<li><a href="#"><%= link_to "お問い合わせ一覧", tweets_path %></a></li>
-<% end %>
-<% end %>
-      <li><a href="#"><%= link_to "カレンダー＆ブログ", reports_path %></a></li>
-      <li><a href="#"><%= link_to "新しく問い合わせる", new_tweet_path %></a></li>
-      <li><a href="#"><%= link_to "マイページへ", user_path(current_user.id) %></a></li>
-  <% end %>
+    <header>
+        <div class="header-list">
+        <h1>性教育、どうですか？</h1>
+          <% if user_signed_in? %>
+          <% if user_signed_in? %>
+            <% if current_user.id == 1 %>
+              <li><a href="#"><%= link_to "お問い合わせ一覧", tweets_path %></a></li>
+              <li><a href="#"><%= link_to "マイページへ", user_path(current_user.id) %></a></li>
+          <% end %>
+          <% end %>
+      
+          <li><a href="#"><%= link_to "カレンダー＆ブログ", reports_path %></a></li>
+          <li><a href="#"><%= link_to "新しく問い合わせる", new_tweet_path %></a></li>
 
-   
-   <ul>
-    <% if user_signed_in? %>
-     <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-    <% else %>
-     <li><%= link_to "新規登録", new_user_registration_path %></li>
-     <li><%= link_to "ログイン", new_user_session_path %></li>
-    <% end %>
-   </ul>
-  </div>
- </header>
- <main>
-  <%= yield %>
- </main>
-</body>
+        <ul>
+          <% if user_signed_in? %>
+              <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+              <li><%= link_to "新規登録", new_user_registration_path %></li>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
+        </ul>
+ 
+        <% end %>
+      </div>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+    
+  </body>
 
 </html>
